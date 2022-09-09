@@ -6,7 +6,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/singularity-cri
   docker:
-    - image: golang:1.12-stretch
+    - image: golang:1.16.6-stretch
 
 jobs:
   get_source:
