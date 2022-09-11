@@ -52,7 +52,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/sylabs/singularity-cri/pkg/singularity"
 	"github.com/sylabs/singularity-cri/pkg/singularity/runtime"
-	"github.com/sylabs/singularity/pkg/util/nvidia"
+	"github.com/sylabs/singularity/pkg/util/gpu"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	k8sDP "k8s.io/kubernetes/pkg/kubelet/apis/deviceplugin/v1beta1"
