@@ -19,7 +19,7 @@ import (
 	"net"
 	"strings"
 	"sync"
-
+    "context"
 	"github.com/containernetworking/cni/libcni"
 	"github.com/golang/glog"
 	snetwork "github.com/sylabs/singularity/pkg/network"
@@ -207,7 +207,7 @@ func (m *Manager) SetUpPod(podConfig *PodConfig) (*PodNetwork, error) {
 	if err := setup.SetArgs([]string{args}); err != nil {
 		return nil, err
 	}
-	if err := setup.AddNetworks(); err != nil {
+	if err := setup.AddNetworks(context.Background()); err != nil {
 		return nil, err
 	}
 	return &PodNetwork{
@@ -224,7 +224,7 @@ func (m *Manager) TearDownPod(podNetwork *PodNetwork) error {
 	if podNetwork.setup == nil {
 		return fmt.Errorf("nil network setup")
 	}
-	return podNetwork.setup.DelNetworks()
+	return podNetwork.setup.DelNetworks(context.Background())
 }
 
 // Status returns an error if the network manager is not initialized.
