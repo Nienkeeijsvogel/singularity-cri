@@ -22,7 +22,7 @@ $(SY_CRI):
 	else \
 		echo " WARNING: seccomp is not found, ignoring" ; \
 	fi
-	$(V)GOOS=linux go build -mod vendor -tags "sylog selinux $(BUILD_TAGS)" \
+	$(V)GOOS=linux go build -mod mod -tags "sylog selinux $(BUILD_TAGS)" \
 		-ldflags "-X main.version=`(git describe --tags --dirty --always 2>/dev/null || echo "unknown") \
 		| sed -e "s/^v//;s/-/_/g;s/_/-/;s/_/./g"`" \
 		-o $(SY_CRI) ./cmd/server
@@ -42,7 +42,7 @@ $(CRI_CONFIG_INSTALL):
 .PHONY: clean
 clean:
 	@echo " CLEAN"
-	$(V)go clean -mod vendor
+	$(V)go clean -mod mod
 	$(V)rm -rf $(BIN_DIR)
 
 .PHONY: uninstall
@@ -52,7 +52,7 @@ uninstall:
 
 .PHONY: test
 test:
-	$(V)GOOS=linux go test -mod vendor -v -coverprofile=cover.out -race ./...
+	$(V)GOOS=linux go test -mod mod -v -coverprofile=cover.out -race ./...
 
 $(SY_CRI_TEST):
 	@echo " GO" $@
@@ -61,7 +61,7 @@ $(SY_CRI_TEST):
 	else \
 		echo " WARNING: seccomp is not found, ignoring" ; \
 	fi
-	$(V)GOOS=linux go test -mod vendor -c -o $(SY_CRI_TEST) -tags "selinux $(BUILD_TAGS) testrunmain" \
+	$(V)GOOS=linux go test -mod mod -c -o $(SY_CRI_TEST) -tags "selinux $(BUILD_TAGS) testrunmain" \
 	-coverpkg=./... ./cmd/server
 
 
@@ -85,4 +85,4 @@ lint:
 .PHONY: dep
 dep:
 	$(V)go mod tidy
-	$(V)go mod vendor
+	$(V)go mod mod

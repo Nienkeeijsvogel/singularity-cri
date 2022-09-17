@@ -52,7 +52,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/sylabs/singularity-cri/pkg/singularity"
 	"github.com/sylabs/singularity-cri/pkg/singularity/runtime"
-	"github.com/sylabs/singularity/pkg/util/nvidia"
+	"github.com/sylabs/singularity/pkg/util/gpu"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	k8sDP "k8s.io/kubernetes/pkg/kubelet/apis/deviceplugin/v1beta1"
@@ -184,13 +184,13 @@ func (dp *SingularityDevicePlugin) ListAndWatch(_ *k8sDP.Empty, srv k8sDP.Device
 // device specific operations and instruct Kubelet of the steps to make the Device
 // available in the container.
 func (dp *SingularityDevicePlugin) Allocate(ctx context.Context, req *k8sDP.AllocateRequest) (*k8sDP.AllocateResponse, error) {
-	nvLibs, nvBins, err := nvidia.Paths(dp.confDir, "")
+	nvLibs, nvBins, err := gpu.NvidiaPaths(dp.confDir, "")
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "could not search NVIDIA files: %v", err)
 	}
 	glog.V(4).Infof("NVIDIA paths are %v and %v", nvLibs, nvBins)
 
-	nvDevs, err := nvidia.Devices(false)
+	nvDevs, err := gpu.NvidiaDevices(false)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "could not search NVIDIA complementary devices: %v", err)
 	}
