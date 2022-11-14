@@ -4,11 +4,6 @@
 Singularity-CRI consists of two separate services: runtime and image, each of which implements 
 K8s RuntimeService and ImageService respectively.
 
-The Singularity-CRI is currently under development and passes 71/74
-[validation tests](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/validation.md).
-Note that used test suite is taken from `v1.13.0` tag. Detailed report can be found
-[here](https://docs.google.com/spreadsheets/d/1Ym3K4LddqKNc4LCh8jr5flN7YDxfnM_hrLxpeDJRO1k/edit?usp=sharing).
-
 ## Quick start
 
 Complete documentation can be found [here](https://sylabs.io/guides/cri/1.0/user-guide). 
