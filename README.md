@@ -1,5 +1,12 @@
- 
+ # Singularity-CRI
 
+The singularity-cri and wlm-operator projects were created by Sylabs to explore interaction between the Kubernetes and HPC worlds. In 2020, rather than dilute our efforts over a large number of projects, we have focused on Singularity itself and our supporting services. We're also looking forward to introducing new features and technologies in 2021.
+
+At this point we have archived the repositories to indicate that they aren't under active development or maintenance. We recognize there is still interest in singularity-cri and wlm-operator, and we'd like these projects to find a home within a community that can further develop and maintain them. The code is open-source under the Apache License 2.0, to be compatible with other projects in the k8s ecosystem.
+
+Please reach out to us via community@sylabs.io if you are interested in establishing a new home for the projects.
+
+----
 
 Singularity-CRI consists of two separate services: runtime and image, each of which implements 
 K8s RuntimeService and ImageService respectively.
@@ -10,7 +17,7 @@ Complete documentation can be found [here](https://sylabs.io/guides/cri/1.0/user
 Further a quick steps provided to set up Singularity-CRI from source.
 
 For Ubuntu 22.04 the /etc/default/grub file should be replaced by https://github.com/Nienkeeijsvogel/sykube/blob/master/grub after which sudo update-grub and sudo init 6 should be run.
-On ubuntu 20.04,18.04,centos 8,9 the next steps work without any system changes.
+On Ubuntu 20.04,18.04,Centos 8,9 the next steps work without any system changes.
 In order to use Singularity-CRI install the following:
 
 
