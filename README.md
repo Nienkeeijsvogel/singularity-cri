@@ -16,6 +16,7 @@ In order to use Singularity-CRI install the following:
 
 - [git](https://git-scm.com/downloads)
 - [go 1.16](https://golang.org/doc/install)
+- [Kubernetes 1.20.9] (https://kubernetes.io/docs/tasks/tools/)
 - [Singularity 3.5.2 with OCI support](https://github.com/sylabs/singularity/blob/master/INSTALL.md)
 - [inotify](http://man7.org/linux/man-pages/man7/inotify.7.html) for device plugin
 - socat package to perform port forwarding
