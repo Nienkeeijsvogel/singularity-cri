@@ -52,18 +52,18 @@ simply run _sycri_ binary. By default it listens for requests on
 This behaviour may be configured with config file, run `sycri -h` for more details.
 
 Create a systemd service file at /etc/systemd/system/sycri.service:
-[Unit]. 
-Description=Singularity-CRI. 
-After=network.target. 
-[Service]. 
-Type=simple. 
-Restart=always. 
-RestartSec=1. 
-ExecStart=/usr/local/bin/sycri. 
-Environment="PATH=/usr/local/libexec/singularity/bin:/usr/libexec/singularity/bin:/bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin". 
-Environment="GOPATH=/usr/bin/go". 
-[Install]. 
-WantedBy=multi-user.target. 
+[Unit]<br />
+Description=Singularity-CRI<br />
+After=network.target<br />
+[Service]<br />
+Type=simple<br />
+Restart=always<br />
+RestartSec=1<br />
+ExecStart=/usr/local/bin/sycri<br />
+Environment="PATH=/usr/local/libexec/singularity/bin:/usr/libexec/singularity/bin:/bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"<br /> 
+Environment="GOPATH=/usr/bin/go"<br />
+[Install]<br />
+WantedBy=multi-user.target<br />
 
 ## Contributing
 
