@@ -47,11 +47,11 @@ Singularity-CRI works with Singularity runtime directly so you need to have
 
 To start Singularity-CRI there are two options:
 
-simply run _sycri_ binary. By default it listens for requests on
+i) simply run _sycri_ binary. By default it listens for requests on
 `unix:///var/run/singularity.sock` and stores image files at `/var/lib/singularity`. 
 This behaviour may be configured with config file, run `sycri -h` for more details.
 
-Create, enable and start a systemd service file at /etc/systemd/system/sycri.service:<br />
+ii) Create, enable and start a systemd service file at /etc/systemd/system/sycri.service:<br />
 [Unit]<br />
 Description=Singularity-CRI<br />
 After=network.target<br />
