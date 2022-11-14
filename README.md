@@ -16,7 +16,7 @@ K8s RuntimeService and ImageService respectively.
 Complete documentation can be found [here](https://sylabs.io/guides/cri/1.0/user-guide). 
 Further a quick steps provided to set up Singularity-CRI from source.
 
-For Ubuntu 22.04 the /etc/default/grub file should be replaced by https://github.com/Nienkeeijsvogel/sykube/blob/master/grub after which sudo update-grub and sudo init 6 should be run.
+For Ubuntu 22.04 the /etc/default/grub file should be replaced by https://github.com/Nienkeeijsvogel/sykube/blob/master/grub after which sudo update-grub and sudo init 6 should be run.<br />
 On Ubuntu 20.04,18.04,Centos 8,9 the next steps work without any system changes.
 In order to use Singularity-CRI install the following:
 
